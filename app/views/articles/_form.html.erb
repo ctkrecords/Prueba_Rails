@@ -1,0 +1,40 @@
+<div class="container">
+<%= form_with model: @article, local: true do |form| %>
+ 
+  <% if @article.errors.any? %>
+    <div id="error_explanation">
+      <h3>
+        Los siguientes <%= pluralize(@article.errors.count, "errores") %> 
+        no permiten que el artículo sea guardado:
+      </h3>
+      <ul>
+        <% @article.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title,  :required => true%>
+  </p>
+ 
+  <p>
+    <%= form.label :text %><br>
+    <%= form.text_area :text, :required => true %>
+  </p>
+
+  <p>
+    <%= form.label :category %><br>
+    <%= form.text_field :category, :required => true %>
+  </p>
+ 
+  <p>
+    <%= form.submit %>
+  </p>
+ 
+<% end %>
+</div>
+
+
