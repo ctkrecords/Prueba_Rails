@@ -1,21 +1,19 @@
-<div class="container">
+
     <%= form_with(model: [ @article, @article.comments.build ], local: true) do |form| %>
-    <form>
         <div class="form-group">
             <label><%= form.label 'Email commenter'%></label><br>
-            <%= form.email_field :mail_commenter, autocomplete: "email" %>
+            <%= form.email_field :mail_commenter, autocomplete: "email", class: "form-control" %>
         </div>
         <div class="form-group">
             <label><%= form.label :commenter %></label><br>
-            <%= form.text_field :commenter, :required => true %>
+            <%= form.text_field :commenter, :required => true, class:"form-control" %>
         </div>
         <div class="form-group">
             <label><%= form.label :body %></label><br>
-            <%= form.text_area :body, :required => true %>
+            <%= form.text_area :body, :required => true, class:"form-control" %>
         </div>
-            <%= form.submit %>
-        </form>
+            <%= form.submit class:"btn btn-primary" %>
+        <br>
     <% end %>
-</div>
 
 

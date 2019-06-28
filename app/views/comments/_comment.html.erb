@@ -1,24 +1,23 @@
-<div class="container">
-<p>
-  <strong>Commenter:</strong>
-  <%= comment.commenter %>
-</p>
-
-<p>
-  <strong>Email commenter:</strong>
-  <%= comment.mail_commenter %>
-</p>
-
-<p>
-  <strong>Comment:</strong>
-  <%= comment.body %>
-</p>
-<hr>
-<p>
-  <% if user_signed_in? %>
-    <%= link_to 'Destroy comment', [comment.article, comment],
+<!--div class="row"-->
+  <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-2">
+    <div class="card text-dark text-center">
+      <div class="card-body">
+        <p class="card-title">
+          <p>
+            <strong>Commenter:</strong>
+            <%= comment.commenter %>
+          </p>
+        </p>
+        <p class="card-text">
+          <%= comment.body %>
+        </p>
+          <% if user_signed_in? %>
+          <%= link_to 'Destroy comment', [comment.article, comment],
                  method: :delete,
-                 data: { confirm: '¿Estás seguro que deseas eliminar el comentario?' } %>
-  <% end %>
-</p>
-</div>
+                 data: { confirm: '¿Estás seguro que deseas eliminar el comentario?'},
+                 class: "btn btn-info" %>
+          <% end %>
+      </div>
+    </div>
+  </div>
+<!--/div-->

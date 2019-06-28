@@ -1,28 +1,33 @@
 <div class="container">
-  <div class="card text-dark bg-light mb-3" style="max-width: 40rem;">
-  <div class="card-header"><h3><%= @article.title %></h3></div>
+  <div class="card text-dark bg-light mb-3 justify-content-center" style="max-width: 60rem;">
+    <div class="card-header">
+      <h2><%= @article.title %></h2>
+    </div><!--card-header-->
   <div class="card-body">
     <p class="card-text"><%= @article.text %></p>
-  </div>
-   <div class="card-footer">Tags: <%= @article.category %></div>
-   
-    <div class="btn text-white">
+  </div><!--card-body-->
+  <div class="card-footer btn">
+    Tags: <%= @article.category %><br>
+    <div class="btn"> 
     <% if user_signed_in? %>
       <%= link_to 'Edit', edit_article_path(@article) %> 
-       <% end %>|
+      |<% end %>
       <%= link_to 'Back', articles_path %>
-    </div>
-   
+    </div><!--btn-->
+  </div><!--card-footer-->
+  </div><!--card-->
+  </div><!--container-->
+
+<div class="container">
+  <h4>Comments (<%= @article.comments.size %>)</h4>
+  <div class="row">
+    <%= render @article.comments %>
+  </div>
 </div>
 
-
-<h3>Comentarios</h3>
-<%= render @article.comments %>
-
-<h3>Agregar un comentario:</h3>
-<%= render 'comments/form'%>
-
-
+<div class="container">
+  <h4>Add a comment</h4>
+  <%= render 'comments/form'%>
 </div>
 
 
